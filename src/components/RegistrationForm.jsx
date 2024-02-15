@@ -118,6 +118,7 @@ const RegistrationForm = () => {
     };
 
     const register = () => {
+        console.log(error)
 
         const newUser = {
             userFirstName: userFirstName,
@@ -167,7 +168,7 @@ const RegistrationForm = () => {
             </div>
 
             <div className="registr-button" >
-                <button name="register" disabled={error.every((e)=>{e ===null})} onClick={register}>Register</button>
+                <button name="register" disabled={!(error.every((e)=>e === null))} onClick={register}>Register</button>
             </div>
 
 
