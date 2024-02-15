@@ -3,3 +3,4 @@ export const SET_LASTNAME = "SET_LASTNAME";
 export const SET_USEREMAIL = "SET_USEREMAIL";
 export const SET_PASSWORD = "SET_PASSWORD";
 export const SET_CONFIRMPASSWORD = "SET_CONFIRMPASSWORD";
+export const SET_USERS = "SET_USERS";
