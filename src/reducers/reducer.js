@@ -1,4 +1,4 @@
-import { SET_FIRSTNAME, SET_LASTNAME, SET_USEREMAIL, SET_PASSWORD, SET_CONFIRMPASSWORD, SET_USERS } from '../TypeAction/TypeAction';
+import { SET_FIRSTNAME, SET_LASTNAME, SET_USEREMAIL, SET_PASSWORD, SET_CONFIRMPASSWORD, SET_USERS } from '../actionType/actionType';
 
 const initialState = {
     userFirstName: '',

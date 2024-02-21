@@ -1,8 +1,8 @@
 // RegistrationForm.js
 import { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setFirstName, setLastName, setEmail, setPassword, setConfirmPassword, setUsers } from '../actions/action';
+import { setFirstName, setLastName, setEmail, setPassword, setConfirmPassword, setUsers } from '../../actions/action';
 import * as Yup from 'yup'
 
 
@@ -23,7 +23,7 @@ const RegistrationForm = () => {
     const users = useSelector((state) => state.users);
     const dispatch = useDispatch();
 
-
+    const navigate = useNavigate();
 
     useEffect(() => {
         const schema = Yup.object().shape({
@@ -51,6 +51,7 @@ const RegistrationForm = () => {
                     password: null,
                     confirmPassword: null,
                 });
+
             } catch (validationErrors) {
                 const newErrors = {};
                 validationErrors.inner.forEach((error) => {
@@ -88,7 +89,6 @@ const RegistrationForm = () => {
     };
 
     const register = () => {
-        console.log(errors)
 
         const newUser = {
             userFirstName: userFirstName,
@@ -100,7 +100,10 @@ const RegistrationForm = () => {
             dispatch(setUsers(newUser));
         }
     }
+    const login = () => {
+        navigate('/log-in');
 
+    }
 
     return (
         <div className="main-page">
@@ -140,7 +143,9 @@ const RegistrationForm = () => {
             <div className="registr-button" >
                 <button name="register" disabled={!(Object.values(errors).every((e) => e === null))} onClick={register}>Register</button>
             </div>
-
+            <div>
+                <button name='login' onClick={login} >LogIn</button>
+            </div>
 
             <div className="users-table">
 

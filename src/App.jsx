@@ -1,13 +1,18 @@
 //App.jsx
+import { Route, Routes } from 'react-router-dom';
+import  {AppRoutes}  from './AppRoutes';
 import './App.css'
-import RegistrationForm from './components/RegistrationForm'
+
 
 function App() {
 
   return (
-    <div>
-      <RegistrationForm/>
-    </div>
+    <Routes>
+      {AppRoutes.map((route, index) => {
+          const{element, ...rest} = route;
+          return <Route key ={index} {...rest} element={element}/>
+        })}
+    </Routes>
   )
 }
 
