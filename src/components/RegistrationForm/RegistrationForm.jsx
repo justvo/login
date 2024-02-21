@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setFirstName, setLastName, setEmail, setPassword, setConfirmPassword, setUsers } from '../../actions/action';
-import * as Yup from 'yup'
+import * as Yup from 'yup';
+import CryptoJS from 'crypto-js';
 
 
 const RegistrationForm = () => {
@@ -90,11 +91,13 @@ const RegistrationForm = () => {
 
     const register = () => {
 
+        const encodedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+
         const newUser = {
             userFirstName: userFirstName,
             userLastName: userLastName,
             userEmail: userEmail,
-            password: password,
+            password: encodedPassword,
         }
         if (Object.values(errors).every((e) => e === null)) {
             dispatch(setUsers(newUser));

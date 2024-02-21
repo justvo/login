@@ -9,4 +9,4 @@ export const AppRoutes =[
         path:'/log-in',
         element: < LogIn/>,
     },
-]
+]          
