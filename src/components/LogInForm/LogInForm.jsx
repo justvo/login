@@ -18,7 +18,7 @@ const LogInForm = () => {
 
 
     const isErrorStyle = (prop) => {
-        return  (error[prop] === '') ? '' : 'error';
+        return (error[prop] === '') ? '' : 'error';
     }
 
     const handleValue = (e) => {
@@ -37,7 +37,7 @@ const LogInForm = () => {
         const isEmailIsValid = users.some(obj => obj['userEmail'] === email);
 
         if (isEmailIsValid) {
-            
+
             const currentUser = users.find(obj => obj["userEmail"] === email)
 
             const enteredPasswordHash = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
@@ -45,17 +45,17 @@ const LogInForm = () => {
 
             if (enteredPasswordHash === currentUser['password']) {
                 alert('success')
-            } 
+            }
             setError({
-                errorEmail:'',
-                errorPassword:( enteredPasswordHash === currentUser['password'] ?'':'The password is valid'),
+                errorEmail: '',
+                errorPassword: (enteredPasswordHash === currentUser['password'] ? '' : 'The password is valid'),
             });
 
-        } else{
+        } else {
 
             setError(({
-                errorPassword:'',
-                errorEmail:(isEmailIsValid?'':'The login is valid'),
+                errorPassword: '',
+                errorEmail: (isEmailIsValid ? '' : 'The login is valid'),
             }));
         }
     };
@@ -63,7 +63,7 @@ const LogInForm = () => {
     const signUp = () => {
         navigate('/')
     }
-    
+
     return (
         <div className="login-field">
             <div className="login-form">
@@ -72,34 +72,35 @@ const LogInForm = () => {
                     Sign In
                 </div>
 
-                <div className="login-input-box">
-    
+                <div >
+
                     <span className={`input-description `}>
-
-                            Email:
-                        </span>
-                        <input className={`input-field ${isErrorStyle('errorEmail')}`} type="text" name="email" onChange={handleValue} />
-                    </div>
-                    <span className="error-message">
-                        {error.errorEmail}
+                        Email:
                     </span>
 
-                    <div>
-                        <span className="input-description ">
-                            Password:
-                        </span>
-                        <input className={`input-field ${isErrorStyle('errorPassword')}`} type="password" name="password" onChange={handleValue} />
-                    </div>
+                    <input className={`input-field ${isErrorStyle('errorEmail')}`} type="text" name="email" onChange={handleValue} />
+                
+                </div>
+                <span className="error-message">
+                    {error.errorEmail}
+                </span>
 
-                    <span className="error-message">
-                        {error.errorPassword}
+                <div>
+                    <span className="input-description ">
+                        Password:
                     </span>
+                    <input className={`input-field ${isErrorStyle('errorPassword')}`} type="password" name="password" onChange={handleValue} />
+                </div>
+
+                <span className="error-message">
+                    {error.errorPassword}
+                </span>
 
 
-                    <div className="buttons">
-                        <button className=" button sign-in" onClick={signIn}>Sign In</button>
-                        <button className=" button sign-up" onClick={signUp}>Sign up</button>
-                    </div>
+                <div className="buttons">
+                    <button className=" button sign-in" onClick={signIn}>Sign In</button>
+                    <button className=" button sign-up" onClick={signUp}>Sign up</button>
+                </div>
             </div>
         </div>
 

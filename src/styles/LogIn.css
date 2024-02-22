@@ -11,14 +11,15 @@
 
 
 .login-field {
-    min-height: 100vh;
+    min-height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .login-form {
-    width: 40%;
+    width: clamp(375px, 50%, 650px);
+    height: 35%;
     padding: 20px;
     border: 1px solid var(--main-border-color);
     border-radius: 5px;
