@@ -1,13 +1,8 @@
 import LogInForm from "../../components/LogInForm/LogInForm";
 
-const LogIn=()=>{
-    return(
-        <div> 
-            <div>
-            LogIn
-            </div>
-            <LogInForm/>
-        </div>
+const LogIn = () => {
+    return (
+        <LogInForm />
     )
 }
 export default LogIn;

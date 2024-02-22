@@ -1,0 +1,98 @@
+:root {
+    --main-bg-color: #fff;
+    --main-border-color: #ccc;
+    --main-text-color: #333;
+    --secondary-text-color: #555;
+    --error-text-color: #e74c3c;
+    --primary-btn-bg: #3498db;
+    --secondary-btn-bg: #2ecc71;
+    --btn-text-color: #fff;
+}
+
+
+.login-field {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    width: 40%;
+    padding: 20px;
+    border: 1px solid var(--main-border-color);
+    border-radius: 5px;
+    background-color: var(--main-bg-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--main-text-color);
+}
+
+.login-input-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-description {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--secondary-text-color);
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid var(--main-border-color);
+    border-radius: 5px;
+
+    &:focus {
+        outline: none;
+        border: 1px solid var(--primary-btn-bg);
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    }
+}
+
+.error {
+    box-shadow: 0 0 7px rgba(250, 5, 17, 0.5);
+}
+
+.error-message {
+    color: var(--error-text-color);
+    font-size: 14px;
+    margin-top: 10px;
+}
+.buttons{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sign-in {
+    background-color: var(--primary-btn-bg);
+    color: var(--btn-text-color);
+}
+
+.sign-up {
+    background-color: var(--secondary-btn-bg);
+    color: var(--btn-text-color);
+}
+
+.button + .button {
+    margin-left: 20px;
+}

@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setFirstName, setLastName, setEmail, setPassword, setConfirmPassword, setUsers } from '../../actions/action';
 import * as Yup from 'yup';
 import CryptoJS from 'crypto-js';
+import '../../styles/Registration.css'
 
 
 const RegistrationForm = () => {
@@ -109,69 +110,78 @@ const RegistrationForm = () => {
     }
 
     return (
-        <div className="main-page">
+        <div className="registration-field">
+            <div className="registration-form">
 
-            <h1>Registration Form</h1>
-
-            <div className="registr-form">
-
-                <div className="input-field">
-                    {errors.userFirstName}
-                    First name:
-                    <input type="text" name="userFirstName" value={userFirstName} onChange={handleInputChange} />
+            <div className="registration-title">
+                    Sign In
                 </div>
 
-                <div className="input-field">
-                    {errors.userLastName}
-                    Last Name:
-                    <input type="text" name="userLastName" value={userLastName} onChange={handleInputChange} />
-                </div>
-                <div className="input-field email">
-                    {errors.userEmail}
-                    Email:
-                    <input type="text" name="userEmail" value={userEmail} onChange={handleInputChange} />
-                </div>
-                <div className="input-field password">
-                    {errors.password}
-                    Password:
-                    <input type="password" name="password" value={password} onChange={handleInputChange} />
-                </div>
-                <div className="input-field password">
-                    {errors.confirmPassword}
-                    Confirm Password:
-                    <input type="password" name="confirmPassword" value={confirmPassword} onChange={handleInputChange} />
-                </div>
-            </div>
+                <div className="registration-input-box">
 
-            <div className="registr-button" >
-                <button name="register" disabled={!(Object.values(errors).every((e) => e === null))} onClick={register}>Register</button>
-            </div>
-            <div>
-                <button name='login' onClick={login} >LogIn</button>
-            </div>
 
-            <div className="users-table">
+                            <span className={`input-description `}>
+                            First name:
+                            </span>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>Password</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {users.map((u, index) => (
-                            <tr key={index}>
-                                <td>{u.userFirstName}</td>
-                                <td>{u.userLastName}</td>
-                                <td>{u.userEmail}</td>
-                                <td>{u.password}</td>
+                            <input className={`input-field ${isErrorStyle('errorEmail')}`} type="text" name="userFirstName" value={userFirstName} onChange={handleInputChange} />
+                        
+                            <span className="error-message">
+                                {errors.userFirstName}
+                            </span>
+
+                    <div className="input-field">
+                        {errors.userLastName}
+                        Last Name:
+                        <input type="text" name="userLastName" value={userLastName} onChange={handleInputChange} />
+                    </div>
+                    <div className="input-field email">
+                        {errors.userEmail}
+                        Email:
+                        <input type="text" name="userEmail" value={userEmail} onChange={handleInputChange} />
+                    </div>
+                    <div className="input-field password">
+                        {errors.password}
+                        Password:
+                        <input type="password" name="password" value={password} onChange={handleInputChange} />
+                    </div>
+                    <div className="input-field password">
+                        {errors.confirmPassword}
+                        Confirm Password:
+                        <input type="password" name="confirmPassword" value={confirmPassword} onChange={handleInputChange} />
+                    </div>
+                </div>
+
+                <div className="registr-button" >
+                    <button name="register" disabled={!(Object.values(errors).every((e) => e === null))} onClick={register}>Register</button>
+                </div>
+                <div>
+                    <button name='login' onClick={login} >LogIn</button>
+                </div>
+
+                <div className="users-table">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Password</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {users.map((u, index) => (
+                                <tr key={index}>
+                                    <td>{u.userFirstName}</td>
+                                    <td>{u.userLastName}</td>
+                                    <td>{u.userEmail}</td>
+                                    <td>{u.password}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );
